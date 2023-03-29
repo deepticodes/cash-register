@@ -1,0 +1,104 @@
+*{
+    margin: 0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Poppins',sans-serif;
+}
+
+body
+{
+display:flex;
+align-items: center;
+justify-content:center;
+min-height:100vh;
+background: #2bd155;
+}
+
+.container{
+    display:flex;
+    flex-direction: column;
+    width:450px;
+    background:#d5e7da;
+    border-radius:12px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.1);
+    padding:5%;
+}
+
+.container .heading{
+   font-weight:bold;
+   text-align: center;
+   padding:10px;
+   font-size:20px;
+   color:green;
+}
+
+.container .description{
+    font-size:14px;
+    padding:10px;
+}
+
+.input-box label{
+    margin-left:50px;
+}
+
+.input-box input{
+    width:40%;
+    height:33px;
+    color:#000;
+    background:none;
+    font-size:1.06rem;
+    font-weight:500;
+    border-radius:4px;
+    letter-spacing: 1.4px;
+    border:1px solid #aaa;
+    padding:0 2.85rem 0 1rem;
+    margin:20px;
+}
+
+#check-button
+{
+    width:20%;
+    color:#000;
+    background-color: #2bd155;
+    border:none;
+    cursor:pointer;
+    font-size:1.06rem;
+    padding:0.94rem 0;
+    border-radius:5px;
+    align-items: center;
+    margin-left:34%;
+}
+
+#check-button:hover{
+    background-color:#b3f5a1;
+}
+
+.table{
+    margin:10px;
+}
+
+.table .change-table{
+    font-weight:bold;
+    font-size:17px;
+    border:1px solid black;
+}
+
+.change-table caption
+{
+    padding:10px;
+    font-style: italic;
+    color:yellowgreen;
+}
+
+.change-table tr th 
+{
+    padding:10px;
+    border:1px solid ;
+}
+
+.change-table td
+{
+    padding:5px;
+    border:1px solid;
+    font-size:medium;
+}
