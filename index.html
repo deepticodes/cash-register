@@ -8,49 +8,66 @@
     <title>Cash Register</title>
 </head>
 <body>
-    <div class="container">
-        <div class="heading">Cash Register Manager</div>
-        <p class="description">
-            Enter the bill amount and cash given by the customer and know 
-            minimum number of notes to return.
-        </p>
-        <div class="input-box">
-        <label for="bill-amount">Bill Amount:</label>
-        <input type="text" id="bill-amount" />
-        <!-- <button class="next">Next</button> -->
-        <label for="cash-given">Cash given:</label>
-        <input type="text" id="cash-given" />
-        <button id="check-button">Check</button> 
-        </div>
-        <div class="error-msg">
-            <p id="error-message"></p>
-        </div>
-        <div class="table">
-            <table class="change-table">
-                <caption>Return Change</caption>
-                <tr>
-                    <th>No. of Notes</th>
-                    <td class="no-of-notes"></td>
-                    <td class="no-of-notes"></td>
-                    <td class="no-of-notes"></td>
-                    <td class="no-of-notes"></td>
-                    <td class="no-of-notes"></td>
-                    <td class="no-of-notes"></td>
-                    <td class="no-of-notes"></td>
-                </tr>
-                <tr>
-                    <th>Note</th>
-                    <td>2000</td>
-                    <td>500</td>
-                    <td>100</td>
-                    <td>20</td>
-                    <td>10</td>
-                    <td>5</td>
-                    <td>1</td>
-                </tr>
+    <h1> Cash Register</h1>
+    <main>
+        <ul class="details">
+            <li>Enter the bill amount and cash given paid by your customer</li>
+            <li>We will tell you the amount and the minimum number of notes to be returned to your customer.</li>
+            <li>Available currencies: Rs. 1, 5, 10, 20, 100, 500, 2000.  </li>
+        </ul>
+        <div class="wrapper">
+            <div>
+                <h3>Enter the bill amount</h3>
+                <input type="number" id="bill" />
+            </div>
+            <button id="next">Next</button>
+            <div class="cashDiv">
+                <h3>Enter the cash given</h3>
+                <input type="number" id="cash" />
+            </div>
+
+            <button id="calculate">Calculate</button>
+
+            <div class="error"></div>
+            <div class="hidden">Amount to be returned: <strong> <span class="amount"></span></strong></div>
+            <table>
+                <tbody>
+                    <tr class="title">
+                        <td>Note</td>
+                        <td>No. of Notes</td>
+                    </tr>
+                    <tr>
+                        <td>2000</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+						<td>500</td>
+						<td>0</td>
+					</tr>
+					<tr>
+						<td>100</td>
+						<td>0</td>
+					</tr>
+					<tr>
+						<td>20</td>
+						<td>0</td>
+					</tr>
+					<tr>
+						<td>10</td>
+						<td>0</td>
+					</tr>
+					<tr>
+						<td>5</td>
+						<td>0</td>
+					</tr>
+                    <tr>
+						<td>1</td>
+						<td>0</td>
+					</tr>
+                </tbody>
             </table>
         </div>
-    </div>
+    </main>
     <script src="index.js"></script>
 </body>
 </html>

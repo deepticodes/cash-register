@@ -1,53 +1,93 @@
-const billAmount = document.querySelector("#bill-amount"),
-cashGiven = document.querySelector("#cash-given"),
-checkButton = document.querySelector("#check-button"),
-message = document.querySelector("#error-message"),
-noOfNotes = document.querySelectorAll(".no-of-notes"),
-nextButton = document.querySelector(".next");
+let bill, cash, diff = 0, i, j;
 
-const availableNotes = [2000, 500, 100, 20, 10, 5, 1];
+const cashInputDiv = document.querySelector(".cashDiv");
+const nextBtn = document.querySelector("#next");
+const calculateBtn = document.querySelector("#calculate");
 
+const errorDiv = document.querySelector(".error");
+const table = document.querySelector("table");
+const amountDiv = document.querySelector("div.hidden");
+const amount = document.querySelector(".amount");
 
-function validateBillAndCashAmount() {
-    hideMessage();
-    console.log("Bill amount entered:",billAmount.value);
-    console.log("Cash amount entered:",cashGiven.value);
-    if (billAmount.value > 0) {
-        if(cashGiven.value >= billAmount.value){
-            const amountToBeReturned = cashGiven.value - billAmount.value;
-            console.log(amountToBeReturned);
-            calculateChange(amountToBeReturned);
-        } else {
-            showMessage("Do you wanna wash plates?");
-        }
+const notesOfArray = [2000, 500, 100, 20, 10, 5, 1];
+let countArray = [0,0,0,0,0,0,0];
+
+nextBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  let billInput = document.querySelector("#bill");
+
+  if(billInput.value === "" || billInput.value <= 0) {
+    errorDiv.innerText = "Error: Please enter the value approprately.";
+    amountDiv.classList.add("hidden");
+    countArray = countArray.map((num) => 0);
+
+    showOutput();
+  } else {
+    bill = parseInt(billInput.value);
+    
+    errorDiv.innerText = "";
+    cashInputDiv.style.display = "block";
+    calculateBtn.style.display = "block";
+  }
+});
+
+calculateBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  let cashInput = document.querySelector("#cash");
+  let billInput = document.querySelector("#bill");
+
+  countArray = countArray.map((num) => 0);
+  showOutput();
+
+  if (
+    cashInput.value === "" || 
+    cashInput.value <= 0 ||
+    billInput.value === "" ||
+    billInput.value <= 0
+  ) {
+    errorDiv.innerText = "Error: Please enter the value appropriately.";
+    amountDiv.classList.add("hidden");
+  } else {
+    bill = parseInt(billInput.value);
+    cash = parseInt(cashInput.value);
+
+    errorDiv.innerText = "";
+    amountDiv.classList.add("hidden");
+
+    if(cash === bill){
+      errorDiv.innerText = "No amount to be returned";
+    } else if (cash < bill) {
+      errorDiv.innerText = "Error: Cash given cannot be less than bill amount";
     } else {
-        showMessage("Invalid bill amount");
+      calculateChange();
     }
-}
+  }
+});
 
-function calculateChange(amountToBeReturned){
-    // go over all the available
-    for(let i = 0; i < availableNotes.length; i++) {
-        // no of notes need for the denomination
-        const numberofNotes = Math.trunc(amountToBeReturned / availableNotes[i]);
+const calculateChange = () => {
+  diff = parseInt(cash) - parseInt(bill);
 
-        //amount left after the number of notes needed
-        amountToBeReturned %= availableNotes[i];
+  amount.innerText = `Rs. ${diff}`;
 
-        //updating the no of Notes in the table for the current amount
-        noOfNotes[i].innerText = numberofNotes;
+  for(i = 0; i < notesOfArray.length; i++) {
+    if(diff >= notesOfArray[i]) {
+      countArray[i] = Math.floor(diff / notesOfArray[i]);
+      diff -= countArray[i] * notesOfArray[i];
+    } else {
+      countArray[i] = 0;
     }
-}
+  }
+  showOutput();
+  amountDiv.classList.remove("hidden");
+};
 
-function hideMessage(){
-    message.style.display = "none";
-}
+const showOutput = () => {
+  let tbody = table.tBodies[0];
 
+  for(j = 0; j < countArray.length; j++) {
+    tbody.rows[j + 1].cells[1].innerHTML = countArray[j];
+  }
+};
 
-function showMessage(msg) {
-    message.style.display = "block";
-    message.innerText = msg;
-}
-
-// nextButton.addEventListener("click",nextButtonOperation);
-checkButton.addEventListener("click", validateBillAndCashAmount);

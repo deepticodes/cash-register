@@ -1,104 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 *{
     margin: 0;
-    padding:0;
-    box-sizing:border-box;
-    font-family: 'Poppins',sans-serif;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body
-{
-display:flex;
-align-items: center;
-justify-content:center;
-min-height:100vh;
-background: #2bd155;
+body{
+    margin: 0 1rem;
+    flex-wrap: nowrap;
+    min-height: 100vh;
+    background-color: rgb(233, 233, 233);
+    font-family: 'Lato', sans-serif;
 }
 
-.container{
-    display:flex;
+h1{
+    color: rgb(144, 84, 255);
+    text-align: center;
+    margin: 1rem;   
+}
+
+main{
+    max-width: 700px;
+    margin: auto;
+    display: flex;
     flex-direction: column;
-    width:450px;
-    background:#d5e7da;
-    border-radius:12px;
-    box-shadow:0 10px 20px rgba(0,0,0,0.1);
-    padding:5%;
-}
-
-.container .heading{
-   font-weight:bold;
-   text-align: center;
-   padding:10px;
-   font-size:20px;
-   color:green;
-}
-
-.container .description{
-    font-size:14px;
-    padding:10px;
-}
-
-.input-box label{
-    margin-left:50px;
-}
-
-.input-box input{
-    width:40%;
-    height:33px;
-    color:#000;
-    background:none;
-    font-size:1.06rem;
-    font-weight:500;
-    border-radius:4px;
-    letter-spacing: 1.4px;
-    border:1px solid #aaa;
-    padding:0 2.85rem 0 1rem;
-    margin:20px;
-}
-
-#check-button
-{
-    width:20%;
-    color:#000;
-    background-color: #2bd155;
-    border:none;
-    cursor:pointer;
-    font-size:1.06rem;
-    padding:0.94rem 0;
-    border-radius:5px;
+    justify-content: center;
     align-items: center;
-    margin-left:34%;
+    background-color:rgb(144, 84, 255);
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 0.2rem;
 }
 
-#check-button:hover{
-    background-color:#b3f5a1;
+.wrapper {
+    background-color:  rgb(233, 233, 233);
+    color: rgb(144, 84, 255);
+    text-align: left;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 0.2rem;
 }
 
-.table{
-    margin:10px;
+.details {
+    text-align: justify;
 }
 
-.table .change-table{
-    font-weight:bold;
-    font-size:17px;
-    border:1px solid black;
+li {
+    list-style: none;
+    margin: 1rem;
 }
 
-.change-table caption
-{
-    padding:10px;
-    font-style: italic;
-    color:yellowgreen;
+input, button {
+    font-size: 0.8rem;
+    padding: 0.25rem 0.5rem;
+    margin: 0.5rem 0;
+    color: rgb(49, 49, 49);
+    outline: none;
+    border: none;
+    border-radius: 0.2rem;
 }
 
-.change-table tr th 
-{
-    padding:10px;
-    border:1px solid ;
+button {
+    background-color: rgb(144, 84, 255);
+    color: white;
+    cursor: pointer;
 }
 
-.change-table td
-{
-    padding:5px;
-    border:1px solid;
-    font-size:medium;
+.error {
+    color: red;
+}
+
+.cashDiv, #calculate, .hidden {
+    display: none;
+}
+
+table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+tr, td {
+    word-wrap: break-word;
+}
+
+td {
+    padding: 0.5rem;
+    text-align: center;
+    border: 1px solid rgb(49,49,49);
+    background-color: white;
+}
+
+.title {
+    font-weight: bold;
+    text-align: left;
 }
